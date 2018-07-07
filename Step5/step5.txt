@@ -1,0 +1,20 @@
+CREATE EXTERNAL TABLE IF NOT EXISTS movietotal (Number int,  Movie string, Type string, Total float) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+LOAD DATA LOCAL INPATH 'project1/movietotal.dat' OVERWRITE INTO TABLE movietotal;
+
+
+To calculate mean
+select movietotal.type, avg(movietotal.total) from movietotal group by movietotal.type;
+
+To calculate median
+ select  movietotal.type, percentile(cast(Total as BIGINT), 0.5) from movietotal group by movietotal.type;
+
+To calculate standered deviation
+ select  movietotal.type, stddev_samp(Total) from movietotal group by movietotal.type;
+
+To calculate max and min
+select  movietotal.type, MAX(Total), MIN(Total) from movietotal group by movietotal.type;
+
+
+therefore final query is --
+CREATE TABLE step5 row format delimited fields terminated by '|' STORED AS TEXTFILE AS select  Type, percentile(cast(Total as BIGINT), 0.5), avg(movietotal.total) stddev_samp(Total), MAX(Total), MIN(Total) from movietotal group by movietotal.type;

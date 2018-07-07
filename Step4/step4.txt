@@ -1,0 +1,18 @@
+cd project1
+hadoop fs -put -f movieweekend.dat /project1
+nano step4.pig
+hadoop fs -put -f step4.pig /project1
+pig -x mapreduce hdfs://master1:9000/project1/step4.pig
+
+
+hive - 
+
+use project1;
+
+CREATE EXTERNAL TABLE IF NOT EXISTS running_weekend(movie string, weekends int) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+LOAD DATA LOCAL INPATH '/project1/result4a/part-r-00000' OVERWRITE INTO TABLE running_weekend;
+
+CREATE EXTERNAL TABLE IF NOT EXISTS weekend_collection(movie string, weekends int) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+LOAD DATA LOCAL INPATH '/project1/result4b/part-r-00000' OVERWRITE INTO TABLE weekend_collection;

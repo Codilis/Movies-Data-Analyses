@@ -1,0 +1,49 @@
+nano moviedaily.dat
+nano step3.pig
+hadoop fs -put -f step3.pig /project1
+hadoop fs -put -f moviedaily.dat /project1
+
+pig -x mapreduce hdfs://master1:9000/project1/step3.pig
+
+
+hive
+
+1. CREATE EXTERNAL TABLE IF NOT EXISTS moviesdaily (Number int,  Movies string, Day_Num int, Daily_Per_Theater float, dat string) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+2. LOAD DATA INPATH '/project1/result3/part-m-00000' OVERWRITE INTO TABLE moviesdaily;
+
+To get days from date
+3. select from_unixtime(unix_timestamp(dat,'MM/dd/yyyy'),'u') as DOW, dat from moviesdaily;
+to save it to table
+
+4. CREATE TABLE sunday_collection row format delimited fields terminated by '|' STORED AS TEXTFILE LOCATION "/user/hive/warehouse/sunday_collection" AS select * from moviesdaily where from_unixtime(unix_timestamp(dat,'MM/dd/yyyy'),'u')==7
+
+
+AVERAGE PER DAY COLLECTION--
+5. CREATE EXTERNAL TABLE IF NOT EXISTS avg_per_day (dat string, average float) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+6. LOAD DATA INPATH '/project1/result3a/part-r-00000' OVERWRITE INTO TABLE avg_per_day;
+
+
+MOVIES RUNNING DAYS
+7. CREATE EXTERNAL TABLE IF NOT EXISTS running_days (movie string, days int) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+8. LOAD DATA INPATH '/project1/result3b/part-m-00000' OVERWRITE INTO TABLE running_days;
+
+
+MAX COLLECTION
+9. CREATE EXTERNAL TABLE IF NOT EXISTS max_collection (Movies string, collection float) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+10. LOAD DATA INPATH '/project1/result3c/part-m-00000' OVERWRITE INTO TABLE max_collection;
+
+
+MIN COLLECTION
+11. CREATE EXTERNAL TABLE IF NOT EXISTS min_collection (Movies string, collection float) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+12. LOAD DATA INPATH '/project1/result3d/part-m-00000' OVERWRITE INTO TABLE min_collection;
+
+
+Top TEN MOVIES
+13.CREATE EXTERNAL TABLE IF NOT EXISTS top_ten (Movies string, collection float) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+14. LOAD DATA INPATH '/project1/result3d/part-m-00000' OVERWRITE INTO TABLE top_ten;

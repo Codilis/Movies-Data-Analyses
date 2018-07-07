@@ -1,0 +1,18 @@
+start-all.sh
+mr-jobhistory-daemon.sh start historyserver
+
+mkdir project1
+cd project1
+nano movietotal.dat
+hadoop fs -mkdir /project1
+hadoop fs -put -f movietotal.dat /project1
+nano step2.pig
+hadoop fs -put -f step2.pig /project1
+pig -x mapreduce hdfs://master1:9000/project1/step2.pig
+
+hive
+create database project1
+use project1
+CREATE EXTERNAL TABLE IF NOT EXISTS movie_total(Number int,  Movie string, Type string, Total float) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+LOAD DATA INPATH '/project1/result2/part-m-00000' OVERWRITE INTO TABLE movie_total;
+
