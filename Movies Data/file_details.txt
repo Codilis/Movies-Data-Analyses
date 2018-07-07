@@ -1,0 +1,46 @@
+source: http://www.the-numbers.com/
+
+Data Documentation Template for Total Movie Box Office Receipts
+
+NAME: movietotal.dat
+TYPE: text (tab delimited)
+SIZE: 2KB, 4 variables, 49 observations, header row
+
+DESCRIPTIVE ABSTRACT: This file contains total US gross box office receipts for 49 movies. This data is to accompany the article entitled Movie Data.
+
+SOURCES: Values have been retrieved from http://www.the-numbers.com/.
+
+VARIABLE DESCRIPTIONS: The file for total US gross receipts has four variables: the movie’s number, the title, the type (Academy Award winner, top gross, etc) and the amount of US box office receipts (in $ millions).
+
+
+Data Documentation Template for Daily Movie Box Office Receipts
+
+NAME: moviedaily.dat
+TYPE: text (tab delimited)
+SIZE: 94KB, 5 variables, 2468 observations, header row
+
+DESCRIPTIVE ABSTRACT: This file contains daily per theater box office receipts for 49 movies. This data is to accompany the article entitled Movie Data.
+
+SOURCES: Values have been retrieved from http://www.the-numbers.com/.
+
+VARIABLE DESCRIPTIONS: The first variable is the movie’s number in the alphabetical list, the second is the movie title, the third is an index for the observation number, the fourth is the per theater box office receipt amount in dollars, and the fifth is the date (mm/dd/yyyy). If the 
+daily data is missing, the third, fourth, and fifth variables are coded as NA. Movie titles are arranged alphabetically and data is chronological.
+
+SPECIAL NOTES: 
+
+STORY BEHIND THE DATA: We find that almost all receipts exhibit seasonality by day of the week. These patterns persist on small as well as large movies. Students seem to enjoy looking at 
+the patterns for those movies they have seen.
+
+Data Documentation Template for Weekend Movie Box Office Receipts
+
+NAME: movieweekend.dat
+TYPE: text (tab delimited)
+SIZE: 48KB, 5 variables, 1254 observations, header row
+
+DESCRIPTIVE ABSTRACT: This file contains weekend per theater box office receipts for 49 movies. This data is to accompany the article entitled Movie Data.
+
+SOURCES: Values have been retrieved from http://www.the-numbers.com/.
+
+VARIABLE DESCRIPTIONS: The first variable is the movie’s number in the alphabetical list, the second is the movie title, the third is a counter for the number of observations, the fourth is the per theater weekend box office receipt amount in dollars, and the fifth is the date (mm/dd/yyyy). Movie titles are arranged alphabetically and data is chronological.
+
+

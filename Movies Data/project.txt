@@ -1,0 +1,43 @@
+----You will get the file 
+
+step 1
+
+We will setup a 3 node hadoop cluster,install pig,hive,sqoop in it. We will check the hadoop cluster is working.
+
+step 2
+
+We will load movietotal.dat into pig and filter out the data which are less than 100$ million pictures and we send the data into hive by creating a table movie_total.
+
+step 3
+
+we will load moviedaily.dat into pig and filter out the data which are having "na" in date then we will put the into hive and we will find which movie is running for how many years
+create table on
+
+a) average per day collection
+b) which movie has max collection,min collection,top ten movies
+c) sunday collection
+d) create a chart on that basic in excel.
+
+
+step 4
+
+we will load movieweekend.dat into hive and we will find and create table 
+
+a) for how many weeks the movie is runnig on weekend
+b) what is the total collection on weekend
+
+step 5
+
+join the movies and display 
+
+Using the data file movietotal.dat, calculate descriptive statistics, including the mean, median, variance, standard deviation, minimum and maximum, for the movies in each category using your software.
+
+Documentation
+
+1) explain your hardware with vmplayer
+2) explain your software
+3) diagram of hadoop cluster 
+4) project coding
+5) prt scrn of excel chart and the table data
+
+
