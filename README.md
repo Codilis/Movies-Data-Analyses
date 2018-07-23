@@ -1,5 +1,5 @@
 # Movies-Data-Analyses
-This Repository contains the analysis of data about Movies.
+This Repository contains the income analysis of Movies using the data of 49 movies.
 Analysis is done using Hadoop2, Hive and Pig.
 Visualization is done using Microsoft's Power Bi.
 
