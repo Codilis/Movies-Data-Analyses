@@ -3,6 +3,8 @@ This Repository contains the income analysis of Movies using the data of 49 movi
 Analysis is done using Hadoop2, Hive and Pig.
 Visualization is done using Microsoft's Power Bi.
 
+To watch complete Presentation for this project visit https://prezi.com/view/8uOiHcDzU7ZNlBM1NT33/
+
 Results From Power Bi are - 
 
 ![capture](https://user-images.githubusercontent.com/24753654/44295636-bf37d180-a2ca-11e8-81bd-26f00816f984.JPG)
